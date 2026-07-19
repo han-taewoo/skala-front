@@ -1,0 +1,1082 @@
+/* ==========================================================================
+   일본 버블경제 · 1980년대 시티팝 스타일
+   ========================================================================== */
+
+/* 본문은 귀여운 Dongle, 제목은 굵은 Black Han Sans 사용 */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@400;700&display=swap');
+
+
+/* ==========================================================================
+   0. 공통 색상 변수
+   ========================================================================== */
+
+:root {
+    --night-navy: #101638;
+    --deep-purple: #29205f;
+
+    --neon-pink: #ff4fa3;
+    --hot-pink: #ff2788;
+    --neon-blue: #31d7ff;
+    --neon-purple: #9b6dff;
+    --sunset-orange: #ff8b5e;
+    --bubble-yellow: #ffe477;
+
+    --cream-white: #fff8e7;
+    --soft-pink: #ffe3ef;
+    --soft-blue: #dff8ff;
+
+    --text-dark: #22213d;
+    --text-gray: #58546d;
+
+    --card-background: rgba(255, 248, 231, 0.94);
+    --neon-shadow: 0 0 10px rgba(255, 79, 163, 0.45);
+}
+
+
+/* ==========================================================================
+   1. 전체 페이지 기본 설정
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: 'Dongle', sans-serif;
+    font-size: 30px;
+    line-height: 1.2;
+
+    color: var(--text-dark);
+
+    /*
+       보라색 도시 야경과 주황색 노을을 섞은
+       일본 시티팝 스타일 배경
+    */
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(255, 79, 163, 0.65),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 85%,
+            rgba(49, 215, 255, 0.4),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #17143f 0%,
+            #372164 42%,
+            #ce4e88 72%,
+            #ff9a69 100%
+        );
+
+    background-attachment: fixed;
+}
+
+/*
+   배경 위에 1980년대 레트로 격자무늬 추가
+*/
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(49, 215, 255, 0.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(49, 215, 255, 0.07) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    transform: perspective(500px) rotateX(5deg);
+    transform-origin: bottom;
+}
+
+
+/* ==========================================================================
+   2. 전체 콘텐츠 컨테이너
+   ========================================================================== */
+
+.container {
+    position: relative;
+
+    width: calc(100% - 40px);
+    max-width: 1200px;
+
+    margin: 35px auto;
+    padding: 30px;
+
+    background: rgba(255, 248, 231, 0.94);
+
+    border: 3px solid var(--night-navy);
+    border-radius: 6px;
+
+    box-shadow:
+        12px 12px 0 rgba(16, 22, 56, 0.8),
+        0 0 25px rgba(255, 79, 163, 0.45);
+
+    /*
+       유리창 같은 효과
+    */
+    backdrop-filter: blur(8px);
+}
+
+
+/* 컨테이너 상단 장식선 */
+.container::before {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 8px;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        var(--neon-pink) 0%,
+        var(--bubble-yellow) 30%,
+        var(--neon-blue) 65%,
+        var(--neon-purple) 100%
+    );
+
+    box-shadow: var(--neon-shadow);
+}
+
+
+/* ==========================================================================
+   3. 헤더
+   ========================================================================== */
+
+header {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 25px;
+    padding: 30px;
+
+    color: var(--cream-white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--night-navy),
+            var(--deep-purple) 55%,
+            #9b3578
+        );
+
+    border: 3px solid var(--night-navy);
+    border-radius: 4px;
+
+    box-shadow:
+        8px 8px 0 var(--neon-pink),
+        0 0 18px rgba(49, 215, 255, 0.45);
+}
+
+
+/* 헤더에 태양처럼 보이는 원형 장식 */
+header::after {
+    content: "";
+
+    position: absolute;
+    top: -45px;
+    right: -35px;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--bubble-yellow) 0,
+        var(--bubble-yellow) 9px,
+        var(--sunset-orange) 10px,
+        var(--sunset-orange) 16px
+    );
+
+    opacity: 0.9;
+}
+
+
+/* ==========================================================================
+   4. 제목 스타일
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 0;
+    padding-bottom: 12px;
+
+    color: var(--night-navy);
+
+    font-size: 52px;
+    letter-spacing: 2px;
+
+    border-bottom: 5px solid var(--neon-pink);
+
+    text-shadow:
+        3px 3px 0 var(--neon-blue),
+        5px 5px 0 rgba(255, 79, 163, 0.3);
+}
+
+
+/* 메인 페이지 헤더 내부 제목 */
+header h1 {
+    color: var(--cream-white);
+
+    border-bottom: 4px solid var(--neon-blue);
+
+    text-shadow:
+        3px 3px 0 var(--hot-pink),
+        6px 6px 0 var(--night-navy);
+
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+header p {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 0;
+
+    color: var(--soft-blue);
+
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+
+/* 주요 구역 제목 */
+h2 {
+    padding: 14px 18px;
+    margin-top: 40px;
+    margin-bottom: 18px;
+
+    color: var(--cream-white);
+
+    font-size: 38px;
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--night-navy),
+            var(--deep-purple),
+            var(--neon-pink)
+        );
+
+    border-left: 10px solid var(--neon-blue);
+    border-bottom: 5px solid var(--bubble-yellow);
+
+    box-shadow:
+        6px 6px 0 rgba(49, 215, 255, 0.4);
+}
+
+
+/* 소제목 */
+h3 {
+    display: inline-block;
+
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding: 6px 14px;
+
+    color: var(--night-navy);
+
+    font-size: 33px;
+    letter-spacing: 1px;
+
+    background-color: var(--bubble-yellow);
+
+    border: 2px solid var(--night-navy);
+
+    box-shadow:
+        5px 5px 0 var(--neon-pink);
+}
+
+
+/* ==========================================================================
+   5. 일반 텍스트 및 링크
+   ========================================================================== */
+
+p,
+li,
+dd,
+dt,
+label {
+    color: var(--text-dark);
+}
+
+a {
+    color: #075ca8;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+a:hover {
+    color: var(--hot-pink);
+
+    text-decoration: none;
+
+    text-shadow:
+        0 0 7px rgba(255, 39, 136, 0.65);
+}
+
+mark {
+    padding: 0 8px;
+
+    color: var(--night-navy);
+
+    background-color: var(--bubble-yellow);
+
+    border-bottom: 3px solid var(--neon-pink);
+}
+
+
+/* ==========================================================================
+   6. 내비게이션 메뉴
+   ========================================================================== */
+
+nav {
+    margin-bottom: 30px;
+    padding: 14px 18px;
+
+    background-color: var(--night-navy);
+
+    border-top: 4px solid var(--neon-pink);
+    border-bottom: 4px solid var(--neon-blue);
+
+    box-shadow:
+        0 0 15px rgba(49, 215, 255, 0.35);
+}
+
+nav h3 {
+    margin-top: 0;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+nav a {
+    display: block;
+
+    padding: 7px 16px;
+
+    color: var(--cream-white);
+
+    background-color: transparent;
+
+    border: 2px solid var(--neon-blue);
+    border-radius: 0;
+
+    font-weight: bold;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+nav a:hover {
+    color: var(--night-navy);
+
+    background-color: var(--neon-pink);
+
+    border-color: var(--bubble-yellow);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        4px 4px 0 var(--neon-blue),
+        0 0 12px rgba(255, 79, 163, 0.7);
+}
+
+
+/* ==========================================================================
+   7. 메인 콘텐츠와 사이드바
+   ========================================================================== */
+
+.content-wrapper {
+    display: flex;
+
+    gap: 30px;
+    align-items: flex-start;
+}
+
+main {
+    flex: 7;
+
+    min-width: 0;
+    padding: 20px;
+
+    background-color: rgba(255, 255, 255, 0.55);
+
+    border: 2px solid var(--night-navy);
+}
+
+aside {
+    flex: 3;
+
+    min-width: 250px;
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            160deg,
+            var(--soft-blue),
+            var(--soft-pink)
+        );
+
+    border: 3px solid var(--night-navy);
+    border-radius: 0;
+
+    box-shadow:
+        7px 7px 0 var(--neon-purple);
+}
+
+aside section {
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================================================
+   8. 여행 앨범 Grid 및 카드
+   ========================================================================== */
+
+.trip-grid-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.trip-card {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 0;
+    padding: 17px;
+
+    background-color: var(--card-background);
+
+    border: 3px solid var(--night-navy);
+    border-radius: 0;
+
+    box-shadow:
+        7px 7px 0 var(--neon-pink);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* 카드 상단 레트로 색상선 */
+.trip-card::before {
+    content: "";
+
+    display: block;
+
+    height: 7px;
+
+    margin: -17px -17px 15px;
+
+    background: linear-gradient(
+        90deg,
+        var(--neon-pink),
+        var(--bubble-yellow),
+        var(--neon-blue)
+    );
+}
+
+.trip-card:hover {
+    transform: translateY(-9px) rotate(-0.5deg);
+
+    box-shadow:
+        12px 12px 0 var(--neon-blue),
+        0 0 18px rgba(255, 79, 163, 0.55);
+}
+
+.trip-card img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: 210px;
+
+    margin-bottom: 12px;
+
+    object-fit: cover;
+
+    border: 3px solid var(--night-navy);
+
+    /*
+       오래된 필름 사진처럼 약간 진한 색감 적용
+    */
+    filter: saturate(1.12) contrast(1.03);
+}
+
+.trip-card h3 {
+    margin-top: 5px;
+}
+
+
+/* ==========================================================================
+   9. 시간표 테이블
+   ========================================================================== */
+
+table {
+    width: 100%;
+
+    margin-top: 20px;
+
+    border-collapse: collapse;
+
+    background-color: var(--cream-white);
+
+    border: 3px solid var(--night-navy);
+
+    box-shadow:
+        8px 8px 0 rgba(49, 215, 255, 0.65);
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: center;
+
+    border: 2px solid var(--night-navy);
+}
+
+th {
+    color: var(--cream-white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--night-navy),
+            var(--deep-purple)
+        );
+
+    letter-spacing: 1px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--soft-pink);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--soft-blue);
+}
+
+tbody tr {
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--bubble-yellow);
+
+    transform: scale(1.005);
+}
+
+
+/* ==========================================================================
+   10. 회원가입 Form
+   ========================================================================== */
+
+fieldset {
+    margin-bottom: 25px;
+    padding: 23px;
+
+    background-color: rgba(255, 255, 255, 0.75);
+
+    border: 3px solid var(--night-navy);
+    border-radius: 0;
+
+    box-shadow:
+        7px 7px 0 var(--neon-purple);
+}
+
+legend {
+    padding: 5px 15px;
+
+    color: var(--cream-white);
+
+    background-color: var(--night-navy);
+
+    border-left: 6px solid var(--neon-pink);
+    border-right: 6px solid var(--neon-blue);
+
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 27px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+
+    margin-top: 5px;
+    margin-bottom: 17px;
+    padding: 11px 13px;
+
+    color: var(--night-navy);
+
+    background-color: #fffdf6;
+
+    border: 2px solid var(--night-navy);
+    border-radius: 0;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 0.9em;
+
+    box-shadow:
+        inset 3px 3px 0 rgba(49, 215, 255, 0.15);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    background-color: #ffffff;
+
+    border-color: var(--hot-pink);
+
+    box-shadow:
+        4px 4px 0 var(--neon-blue),
+        0 0 10px rgba(255, 79, 163, 0.4);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+
+    margin-right: 6px;
+
+    accent-color: var(--hot-pink);
+
+    cursor: pointer;
+}
+
+textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+/* ==========================================================================
+   11. 회원가입 및 초기화 버튼
+   ========================================================================== */
+
+.btn-submit,
+.btn-reset {
+    padding: 12px 30px;
+    margin-top: 8px;
+    margin-right: 12px;
+
+    border: 3px solid var(--night-navy);
+    border-radius: 0;
+
+    font-family: 'Dongle', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-submit {
+    color: var(--night-navy);
+
+    background-color: var(--neon-pink);
+
+    box-shadow:
+        6px 6px 0 var(--neon-blue);
+}
+
+.btn-reset {
+    color: var(--night-navy);
+
+    background-color: var(--bubble-yellow);
+
+    box-shadow:
+        6px 6px 0 var(--neon-purple);
+}
+
+.btn-submit:hover,
+.btn-reset:hover {
+    color: var(--cream-white);
+
+    background-color: var(--night-navy);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        9px 9px 0 var(--hot-pink);
+}
+
+.btn-submit:active,
+.btn-reset:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        3px 3px 0 var(--neon-blue);
+}
+
+
+/* ==========================================================================
+   12. JavaScript 버튼 영역
+   ========================================================================== */
+
+aside section:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+}
+
+aside section:last-child button {
+    width: 88%;
+
+    padding: 10px 12px;
+
+    color: var(--cream-white);
+
+    background-color: var(--night-navy);
+
+    border: 3px solid var(--night-navy);
+    border-radius: 0;
+
+    font-family: 'Dongle', sans-serif;
+    font-size: 0.95em;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        5px 5px 0 var(--neon-pink);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* 버튼별 서로 다른 버블경제 색상 */
+aside section:last-child button:nth-of-type(2) {
+    color: var(--night-navy);
+
+    background-color: var(--neon-blue);
+
+    box-shadow:
+        5px 5px 0 var(--neon-purple);
+}
+
+aside section:last-child button:nth-of-type(3) {
+    color: var(--night-navy);
+
+    background-color: var(--bubble-yellow);
+
+    box-shadow:
+        5px 5px 0 var(--neon-pink);
+}
+
+aside section:last-child button:nth-of-type(4) {
+    color: var(--night-navy);
+
+    background-color: var(--neon-pink);
+
+    box-shadow:
+        5px 5px 0 var(--neon-blue);
+}
+
+aside section:last-child button:hover {
+    color: var(--cream-white);
+
+    background-color: var(--hot-pink);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        8px 8px 0 var(--neon-blue),
+        0 0 12px rgba(255, 79, 163, 0.65);
+}
+
+aside section:last-child button:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        3px 3px 0 var(--neon-blue);
+}
+
+
+/* ==========================================================================
+   13. 목록 및 구분선
+   ========================================================================== */
+
+ul,
+ol {
+    padding-left: 32px;
+}
+
+li::marker {
+    color: var(--hot-pink);
+}
+
+hr {
+    height: 4px;
+
+    margin: 30px 0;
+
+    background: linear-gradient(
+        90deg,
+        var(--neon-pink),
+        var(--bubble-yellow),
+        var(--neon-blue),
+        var(--neon-purple)
+    );
+
+    border: none;
+}
+
+
+/* ==========================================================================
+   14. 애니메이션
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes neonPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 6px rgba(255, 79, 163, 0.35);
+    }
+
+    50% {
+        box-shadow:
+            0 0 18px rgba(255, 79, 163, 0.75);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.7s ease-out;
+}
+
+nav {
+    animation: neonPulse 2.5s ease-in-out infinite;
+}
+
+
+/* 사용자가 애니메이션 감소 설정을 사용하면 움직임 제거 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================================================
+   15. 반응형 디자인
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .trip-grid-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-wrapper {
+        gap: 20px;
+    }
+
+    main {
+        flex: 6;
+    }
+
+    aside {
+        flex: 4;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 27px;
+    }
+
+    .container {
+        width: calc(100% - 20px);
+
+        margin: 15px auto;
+        padding: 18px;
+
+        box-shadow:
+            6px 6px 0 rgba(16, 22, 56, 0.8),
+            0 0 15px rgba(255, 79, 163, 0.35);
+    }
+
+    header {
+        padding: 22px;
+    }
+
+    header::after {
+        width: 120px;
+        height: 120px;
+
+        top: -35px;
+        right: -35px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 29px;
+    }
+
+    nav ul {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    nav a {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    main,
+    aside {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .trip-grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-card img {
+        height: auto;
+    }
+
+    table {
+        font-size: 0.85em;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    .btn-submit,
+    .btn-reset {
+        width: 100%;
+
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+}
